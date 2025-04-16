@@ -196,6 +196,15 @@
         box-sizing: border-box;
         font-size: 1.1em;
 
+        &:focus {
+          outline: none;
+        }
+        
+        &:focus-visible {
+          outline: 3px solid rgba(0, 54, 199, 0.6);
+          outline-offset: 2px;
+        }
+
         &:not(:last-child) {
           margin: 0;
           padding: 2px 0;

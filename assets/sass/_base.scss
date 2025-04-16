@@ -197,6 +197,11 @@ a {
   }
 
   &:focus {
+    outline: none; // Remove the default focus outline
+  }
+
+  // Keep focus styles for keyboard navigation (accessibility)
+  &:focus-visible {
     outline: 3px solid rgba(0, 54, 199, 0.6);
     outline-offset: 2px;
   }

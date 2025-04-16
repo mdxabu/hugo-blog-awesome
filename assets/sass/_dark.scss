@@ -120,7 +120,13 @@
     }
 
     &:focus {
-      outline-color: rgba(44, 118, 246, 0.6);
+      outline: none; // Remove the default focus outline
+    }
+
+    // Keep focus styles for keyboard navigation (accessibility)
+    &:focus-visible {
+      outline: 3px solid rgba(44, 118, 246, 0.6);
+      outline-offset: 2px;
     }
   }
 

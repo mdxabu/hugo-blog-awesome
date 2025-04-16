@@ -184,9 +184,25 @@
     &:hover,
     &:focus {
       .post-title {
-        color: $text-link-blue-active;
-        opacity: 0.9;
+      color: $text-link-blue-active;
+      opacity: 0.9;
       }
+    }
+    
+    // Remove focus outline for all interactions but maintain keyboard accessibility
+    &:focus {
+      outline: none;
+    }
+    
+    // Only show outline for keyboard navigation (focus-visible)
+    &:focus-visible {
+      outline: 3px solid rgba(0, 54, 199, 0.6);
+      outline-offset: 2px;
+    }
+    
+    // Explicitly remove outline for mouse clicks
+    &:active {
+      outline: none;
     }
 
     .nav-arrow {
