@@ -1,0 +1,28 @@
+/* giscus-theme.css */
+:root {
+  --color-bg-primary: #ffffff;
+  --color-text-primary: #111827;
+  --color-border: #e5e7eb;
+
+  --color-prettylights-syntax-comment: #6a737d;
+  --color-prettylights-syntax-constant: #005cc5;
+  --color-prettylights-syntax-entity: #6f42c1;
+  --color-prettylights-syntax-variable: #e36209;
+  --color-prettylights-syntax-string: #032f62;
+  --color-prettylights-syntax-keyword: #d73a49;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg-primary: #0d1117;
+    --color-text-primary: #c9d1d9;
+    --color-border: #30363d;
+
+    --color-prettylights-syntax-comment: #8b949e;
+    --color-prettylights-syntax-constant: #79c0ff;
+    --color-prettylights-syntax-entity: #d2a8ff;
+    --color-prettylights-syntax-variable: #ffa657;
+    --color-prettylights-syntax-string: #a5d6ff;
+    --color-prettylights-syntax-keyword: #ff7b72;
+  }
+}
