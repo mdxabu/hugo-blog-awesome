@@ -7,10 +7,13 @@
 {{- else -}}
 {{- $pages = $pctx.Pages -}}
 {{- end -}}
-{{- $limit := .Site.Config.Services.RSS.Limit -}}
+{{- /* Include all pages by removing or increasing the limit */ -}}
+{{- $limit := .Site.Config.Services.RSS.Limit | default 0 -}}
 {{- if ge $limit 1 -}}
 {{- $pages = $pages | first $limit -}}
 {{- end -}}
+{{- /* Sort pages by date to ensure proper ordering */ -}}
+{{- $pages = $pages.ByDate.Reverse -}}
 {{- $rssFeedDescription := .Site.Params.rssFeedDescription | default "summary" -}}
 {{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
