@@ -18,20 +18,34 @@
     <div class="wrapper">
         {{ partial "bio" . }}
         <main aria-label="Content">
-            <h3 class="posts-item-note" aria-label="Recent Posts">{{ T "home.recent_posts" }}</h3>
-            {{/* Show last 5 posts in reverse date order */}}
-            {{ $pagesToShow := where .Site.RegularPages "Type" "in" site.Params.mainSections }}
-            {{ $posts := $pagesToShow.ByDate.Reverse }}
-            {{ range first 5 $posts }}
+
+                        <h3 class="posts-item-note" aria-label="Recent Posts on Life">Recent Posts on Life</h3>
+            {{/* Show last 3 life posts in reverse date order */}}
+            {{ $lifePosts := where .Site.RegularPages "Section" "posts" }}
+            {{ $lifePostsSorted := $lifePosts.ByDate.Reverse }}
+            {{ range first 3 $lifePostsSorted }}
             {{ partial "postCard" . }}
             {{ end }}
-            {{ if gt (len $posts) 5 }}
+            {{ if gt (len $lifePosts) 3 }}
             <p>
-                {{ range $firstSection := (where .Site.Sections "Section" "in" (first 1 (.Site.Params.mainSections))) }}
-                <a href="{{ $firstSection.Permalink }}">{{ T "home.see_all_posts" }}</a>
-                {{ end }}
+                <a href="/posts/">See all life posts</a>
             </p>
             {{ end }}
+
+            <h3 class="posts-item-note" aria-label="Recent Posts on Tech">Recent Posts on Tech</h3>
+            {{/* Show last 3 techlogs in reverse date order */}}
+            {{ $techPosts := where .Site.RegularPages "Section" "techlog" }}
+            {{ $techPostsSorted := $techPosts.ByDate.Reverse }}
+            {{ range first 3 $techPostsSorted }}
+            {{ partial "postCard" . }}
+            {{ end }}
+            {{ if gt (len $techPosts) 3 }}
+            <p>
+                <a href="/techlog/">See all tech posts</a>
+            </p>
+            {{ end }}
+
+
         </main>
     </div>
     {{- partial "footer.html" . -}}
