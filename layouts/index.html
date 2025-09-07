@@ -15,24 +15,27 @@ website developer to enforce default dark mode */}} {{- if eq $defaultColor
                 <div class="wrapper">
                     {{ partial "bio" . }}
                     <main aria-label="Content">
-                        <h3
-                            class="posts-item-note"
-                            aria-label="Recent Posts on Life"
-                        >
-                            Recent Posts on Life
-                        </h3>
-                        {{/* Show last 5 life posts in reverse date order */}}
-                        {{ $lifePosts := where .Site.RegularPages "Section"
-                        "posts" }} {{ $lifePostsSorted :=
-                        $lifePosts.ByDate.Reverse }} {{ range first 5
-                        $lifePostsSorted }} {{ partial "postCard" . }} {{ end }}
-                        {{ if gt (len $lifePosts) 5 }}
-                        <p>
-                            <a href="/posts/">See all life posts</a>
-                        </p>
-                        {{ end }}
+                        {{/* 
+                            <h3
+                                class="posts-item-note"
+                                aria-label="Recent Posts on Life"
+                            >
+                                Recent Posts on Life
+                            </h3>
+                            {{ $lifePosts := where .Site.RegularPages "Section" "posts" }} 
+                            {{ $lifePostsSorted := $lifePosts.ByDate.Reverse }} 
+                            {{ range first 5 $lifePostsSorted }} 
+                                {{ partial "postCard" . }} 
+                            {{ end }}
+                            {{ if gt (len $lifePosts) 5 }}
+                            <p>
+                                <a href="/posts/">See all life posts</a>
+                            </p>
+                            {{ end }}
 
-                        <br />
+                            <br />  
+                        */}}
+                        
 
                         <h3
                             class="posts-item-note"
