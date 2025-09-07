@@ -23,7 +23,7 @@
     {{- $code_syntax_highlight_css := resources.Get "code-highlight.css" | minify | fingerprint }}
     <link href="{{ $code_syntax_highlight_css.RelPermalink }}" rel="stylesheet">
 
-    {{/* Favicons */}}
+      {{/* Favicons */}}
     <link rel="apple-touch-icon" sizes="180x180" href="{{ (resources.Get "icons/apple-touch-icon.png").RelPermalink }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ (resources.Get "icons/favicon-32x32.png").RelPermalink }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ (resources.Get "icons/favicon-16x16.png").RelPermalink }}">
@@ -35,7 +35,7 @@
 
     <meta name="theme-color" content="{{ .Site.Params.webmanifest.theme_color | default "#434648" }}">
 
-    {{/* SVG favicon for the modern web */}}
+{{/* SVG favicon for the modern web */}}
     <link rel="icon" type="image/svg+xml" href="{{ (resources.Get "icons/favicon.svg").RelPermalink }}">
 
     {{/* Katex support (enabled on specific pages). See 'helpers/katex.html' for more info. */}}
