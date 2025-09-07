@@ -74,10 +74,10 @@
     <!-- Debug: favicon.svg not found in assets/icons/ -->
     {{/* Fallback to ICO if SVG not available */}}
     {{- if $faviconIco }}
-    <link rel="icon" href="{{ ($faviconIco | resources.Copy "favicon.ico").RelPermalink }}">
+    <link rel="icon" href="{{ ($faviconIco | resources.Copy "favicon.svg").RelPermalink }}">
     {{- else }}
     <!-- Ultimate fallback -->
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.svg" type="image/x-icon">
     {{- end }}
     {{- end }}
 
