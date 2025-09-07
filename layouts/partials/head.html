@@ -23,45 +23,45 @@
     {{- $code_syntax_highlight_css := resources.Get "code-highlight.css" | minify | fingerprint }}
     <link href="{{ $code_syntax_highlight_css.RelPermalink }}" rel="stylesheet">
 
-    {{/* Favicons with debugging */}}
+    {{/* Favicons - SVG working, keep it primary */}}
+    {{- $faviconSvg := resources.Get "icons/favicon.svg" }}
+    {{- if $faviconSvg }}
+    <link rel="icon" type="image/svg+xml" href="{{ $faviconSvg.RelPermalink }}">
+    {{- end }}
+    
+    {{/* Keep essential fallbacks for older browsers */}}
+    {{- $faviconIco := resources.Get "icons/favicon.ico" }}
+    {{- if $faviconIco }}
+    <link rel="icon" href="{{ ($faviconIco | resources.Copy "favicon.ico").RelPermalink }}" type="image/x-icon">
+    {{- else }}
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    {{- end }}
+    
+    {{/* Apple touch icon for iOS */}}
     {{- $appleIcon := resources.Get "icons/apple-touch-icon.png" }}
     {{- if $appleIcon }}
     <link rel="apple-touch-icon" sizes="180x180" href="{{ $appleIcon.RelPermalink }}">
-    {{- else }}
-    <!-- Debug: apple-touch-icon.png not found in assets/icons/ -->
-    {{- end }}
-    
-    {{- $favicon32 := resources.Get "icons/favicon-32x32.png" }}
-    {{- if $favicon32 }}
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ $favicon32.RelPermalink }}">
-    {{- else }}
-    <!-- Debug: favicon-32x32.png not found in assets/icons/ -->
-    {{- end }}
-    
-    {{- $favicon16 := resources.Get "icons/favicon-16x16.png" }}
-    {{- if $favicon16 }}
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ $favicon16.RelPermalink }}">
-    {{- else }}
-    <!-- Debug: favicon-16x16.png not found in assets/icons/ -->
-    {{- end }}
-    
-    {{- $safariIcon := resources.Get "icons/safari-pinned-tab.svg" }}
-    {{- if $safariIcon }}
-    <link rel="mask-icon" href="{{ $safariIcon.RelPermalink }}">
-    {{- else }}
-    <!-- Debug: safari-pinned-tab.svg not found in assets/icons/ -->
-    {{- end }}
-    
-    {{- $faviconIco := resources.Get "icons/favicon.ico" }}
-    {{- if $faviconIco }}
-    <link rel="shortcut icon" href="{{ ($faviconIco | resources.Copy "favicon.ico").RelPermalink }}">
-    {{- else }}
-    <!-- Debug: favicon.ico not found in assets/icons/ -->
-    <!-- Fallback: try static folder -->
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     {{- end }}
 
     {{- partial "webmanifest.html" . -}}
+    {{- partial "browserconfig.html" . -}}
+
+    <meta name="theme-color" content="{{ .Site.Params.webmanifest.theme_color | default "#434648" }}">
+
+    {{/* Katex support (enabled on specific pages). See 'helpers/katex.html' for more info. */}}
+
+    {{- if or .Params.math .Site.Params.math }}{{ partial "helpers/katex.html" . -}}{{- end -}}
+
+    {{/* Google analytics script. See hugo.toml to enable/disable this. */}}
+    {{- if hugo.IsProduction | or (eq site.Params.env "production") }}
+    {{ template "_internal/google_analytics.html" . }}
+    {{- end -}}
+
+    {{/* Extend head with user supplied partial */}}
+    {{ if templates.Exists "partials/custom-head.html" }}
+      {{ partial "custom-head.html" . }}
+    {{ end }}
+</head>
     {{- partial "browserconfig.html" . -}}
 
     <meta name="theme-color" content="{{ .Site.Params.webmanifest.theme_color | default "#434648" }}">
