@@ -23,20 +23,63 @@
     {{- $code_syntax_highlight_css := resources.Get "code-highlight.css" | minify | fingerprint }}
     <link href="{{ $code_syntax_highlight_css.RelPermalink }}" rel="stylesheet">
 
-      {{/* Favicons */}}
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ (resources.Get "icons/apple-touch-icon.png").RelPermalink }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ (resources.Get "icons/favicon-32x32.png").RelPermalink }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ (resources.Get "icons/favicon-16x16.png").RelPermalink }}">
-    <link rel="mask-icon" href="{{ (resources.Get "icons/safari-pinned-tab.svg").RelPermalink }}">
-    <link rel="shortcut icon" href="{{ (resources.Get "icons/favicon.ico" | resources.Copy "favicon.ico").RelPermalink }}">
+    {{/* Favicons with debugging */}}
+    {{- $appleIcon := resources.Get "icons/apple-touch-icon.png" }}
+    {{- if $appleIcon }}
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ $appleIcon.RelPermalink }}">
+    {{- else }}
+    <!-- Debug: apple-touch-icon.png not found in assets/icons/ -->
+    {{- end }}
+    
+    {{- $favicon32 := resources.Get "icons/favicon-32x32.png" }}
+    {{- if $favicon32 }}
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ $favicon32.RelPermalink }}">
+    {{- else }}
+    <!-- Debug: favicon-32x32.png not found in assets/icons/ -->
+    {{- end }}
+    
+    {{- $favicon16 := resources.Get "icons/favicon-16x16.png" }}
+    {{- if $favicon16 }}
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ $favicon16.RelPermalink }}">
+    {{- else }}
+    <!-- Debug: favicon-16x16.png not found in assets/icons/ -->
+    {{- end }}
+    
+    {{- $safariIcon := resources.Get "icons/safari-pinned-tab.svg" }}
+    {{- if $safariIcon }}
+    <link rel="mask-icon" href="{{ $safariIcon.RelPermalink }}">
+    {{- else }}
+    <!-- Debug: safari-pinned-tab.svg not found in assets/icons/ -->
+    {{- end }}
+    
+    {{- $faviconIco := resources.Get "icons/favicon.ico" }}
+    {{- if $faviconIco }}
+    <link rel="shortcut icon" href="{{ ($faviconIco | resources.Copy "favicon.ico").RelPermalink }}">
+    {{- else }}
+    <!-- Debug: favicon.ico not found in assets/icons/ -->
+    <!-- Fallback: try static folder -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    {{- end }}
 
     {{- partial "webmanifest.html" . -}}
     {{- partial "browserconfig.html" . -}}
 
     <meta name="theme-color" content="{{ .Site.Params.webmanifest.theme_color | default "#434648" }}">
 
-{{/* SVG favicon for the modern web */}}
-    <link rel="icon" type="image/svg+xml" href="{{ (resources.Get "icons/favicon.svg").RelPermalink }}">
+    {{/* SVG favicon for the modern web */}}
+    {{- $faviconSvg := resources.Get "icons/favicon.svg" }}
+    {{- if $faviconSvg }}
+    <link rel="icon" type="image/svg+xml" href="{{ $faviconSvg.RelPermalink }}">
+    {{- else }}
+    <!-- Debug: favicon.svg not found in assets/icons/ -->
+    {{/* Fallback to ICO if SVG not available */}}
+    {{- if $faviconIco }}
+    <link rel="icon" href="{{ ($faviconIco | resources.Copy "favicon.ico").RelPermalink }}">
+    {{- else }}
+    <!-- Ultimate fallback -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    {{- end }}
+    {{- end }}
 
     {{/* Katex support (enabled on specific pages). See 'helpers/katex.html' for more info. */}}
 
