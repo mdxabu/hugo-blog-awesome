@@ -21,6 +21,18 @@
     object-fit: cover;
   }
 
+  .author-avatar-fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-size: 28px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
   .author-name {
     font-size: 1.7em;
     margin-bottom: 2px;
@@ -261,7 +273,7 @@ a {
   &:focus {
     outline: none;
   }
-  
+
   &:focus-visible {
     outline: 3px solid rgba(0, 54, 199, 0.6);
     outline-offset: 2px;

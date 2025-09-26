@@ -1,28 +1,38 @@
 {{ $avatar_img := .Site.Params.author.avatar }}
-{{ $avatar_img_alt := .Site.Params.author.name }}
+{{ $avatar_img_alt := or .Site.Params.author.name .Site.Params.author.intro }}
 {{ $is_external := or (strings.HasPrefix $avatar_img "http://") (strings.HasPrefix $avatar_img "https://") }}
+
 <div class="author">
     {{ if $is_external }}
-    <!-- for external URLs, use directly -->
-    <img class="author-avatar" src="{{ $avatar_img }}" alt="{{ $avatar_img_alt }}" width="300" height="300" style="width: 300px; height: 300px;" />
+        <!-- External image URL -->
+        <img class="author-avatar"
+             src="{{ $avatar_img }}"
+             alt="{{ $avatar_img_alt }}"
+             width="300"
+             height="300"
+             style="width: 300px; height: 300px; border-radius: 50%; object-fit: cover;" />
     {{ else }}
-    <!-- for local images, use resources.Get -->
-    {{ $image := resources.Get $avatar_img }}
-    {{ with $image }}
-    {{ if eq .MediaType.SubType "svg" }}
-    <svg width="300" height="300" style="width: 300px; height: 300px;" xmlns="http://www.w3.org/2000/svg">
-        <image width="300" height="300" href="{{ $image.RelPermalink }}" />
-    </svg>
-    {{ else }}
-    {{ $res := $image.Fill "300x300 webp" }}
-    <img class="author-avatar" src="{{ $res.RelPermalink }}" alt="{{ $avatar_img_alt }}" width="{{ $res.Width }}"
-        height="{{ $res.Height }}" style="width: 300px; height: 300px;" />
+        <!-- Try to load from assets (Hugo Pipes) -->
+        {{ $image := resources.Get $avatar_img }}
+        {{ with $image }}
+            {{ $resized := .Fill "300x300" }}
+            <img class="author-avatar"
+                 src="{{ $resized.RelPermalink }}"
+                 alt="{{ $avatar_img_alt }}"
+                 width="{{ $resized.Width }}"
+                 height="{{ $resized.Height }}"
+                 style="width: 300px; height: 300px; border-radius: 50%; object-fit: cover;" />
+        {{ else }}
+            <!-- Fallback: use static folder path -->
+            <img class="author-avatar"
+                 src="{{ $avatar_img }}"
+                 alt="{{ $avatar_img_alt }}"
+                 width="300"
+                 height="300"
+                 style="width: 300px; height: 300px; border-radius: 50%; object-fit: cover;" />
+        {{ end }}
     {{ end }}
-    {{ else }}
-    <!-- fallback if image not found -->
-    <p>Avatar image not found. Check the path in site config.</p>
-    {{ end }}
-    {{ end }}
+
     <h2 class="author-name">{{ .Site.Params.author.intro }}</h2>
     <p class="author-bio">{{ .Site.Params.author.description }}</p>
 </div>
