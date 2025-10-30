@@ -1,44 +1,84 @@
 /* Custom styles for image captions */
 .image-figure {
-  margin: 2rem auto;
-  text-align: center;
+  margin: 2rem auto !important;
+  text-align: center !important;
   max-width: 100%;
+  display: block !important;
 }
 
 .image-figure img {
   max-width: 100%;
   height: auto;
-  display: block;
-  margin: 0 auto;
+  display: block !important;
+  margin: 0 auto !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .image-figure figcaption {
   margin-top: 0.75rem;
-  font-size: 1rem;
-  color: #666;
+  font-size: 1.1rem;
+  color: #1a1a1a;
   font-style: italic;
   line-height: 1.5;
   padding: 0 1rem;
+  font-weight: 200;
 }
 
 /* Dark mode support */
 @media (prefers-color-scheme: dark) {
   .image-figure figcaption {
-    color: #aaa;
+    color: #6d6969;
   }
   
   .image-figure img {
-    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+    box-shadow: #6d6969;
   }
 }
 
 /* Support for theme toggle if using custom theme selector */
 [data-theme="dark"] .image-figure figcaption {
-  color: #aaa;
+  color: #ddd;
 }
 
 [data-theme="dark"] .image-figure img {
   box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+}
+
+/* Image size variants */
+.image-figure.image-small {
+  max-width: 500px;
+}
+
+.image-figure.image-small img {
+  max-width: 100%;
+}
+
+.image-figure.image-medium {
+  max-width: 750px;
+}
+
+.image-figure.image-medium img {
+  max-width: 100%;
+}
+
+.image-figure.image-large {
+  max-width: 100%;
+}
+
+.image-figure.image-large img {
+  max-width: 100%;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .image-figure.image-small {
+    max-width: 100%;
+  }
+  
+  .image-figure.image-medium {
+    max-width: 100%;
+  }
 }

@@ -1,6 +1,24 @@
 {{- $alt := .Text -}}
 {{- $src := .Destination -}}
 {{- $title := .Title -}}
+{{- $caption := "" -}}
+{{- $size := "" -}}
+
+{{- /* Parse title for size and caption */ -}}
+{{- if $title -}}
+  {{- $parts := split $title "|" -}}
+  {{- if eq (len $parts) 2 -}}
+    {{- /* Format: "caption | size" */ -}}
+    {{- $caption = trim (index $parts 0) " " -}}
+    {{- $sizeRaw := trim (index $parts 1) " " | lower -}}
+    {{- if or (eq $sizeRaw "small") (eq $sizeRaw "medium") (eq $sizeRaw "large") -}}
+      {{- $size = $sizeRaw -}}
+    {{- end -}}
+  {{- else -}}
+    {{- /* No size specified, just caption */ -}}
+    {{- $caption = $title -}}
+  {{- end -}}
+{{- end -}}
 
 {{- /* Check if the image path starts with / (absolute from static) */ -}}
 {{- if hasPrefix $src "/" -}}
@@ -15,9 +33,9 @@
   {{- $src = printf "/%s" $src -}}
 {{- end -}}
 
-<figure class="image-figure">
-  <img src="{{ $src | safeURL }}" alt="{{ $alt }}" {{ with $title }}title="{{ . }}"{{ end }} loading="lazy">
-  {{- if $title -}}
-  <figcaption>{{ $title | markdownify }}</figcaption>
+<figure class="image-figure{{ if $size }} image-{{ $size }}{{ end }}">
+  <img src="{{ $src | safeURL }}" alt="{{ $alt }}" {{ with $caption }}title="{{ . }}"{{ end }} loading="lazy">
+  {{- if $caption -}}
+  <figcaption>{{ $caption | markdownify }}</figcaption>
   {{- end -}}
 </figure>
