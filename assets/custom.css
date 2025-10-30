@@ -46,39 +46,3 @@
 [data-theme="dark"] .image-figure img {
   box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
 }
-
-/* Image size variants */
-.image-figure.image-small {
-  max-width: 500px;
-}
-
-.image-figure.image-small img {
-  max-width: 100%;
-}
-
-.image-figure.image-medium {
-  max-width: 750px;
-}
-
-.image-figure.image-medium img {
-  max-width: 100%;
-}
-
-.image-figure.image-large {
-  max-width: 100%;
-}
-
-.image-figure.image-large img {
-  max-width: 100%;
-}
-
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-  .image-figure.image-small {
-    max-width: 100%;
-  }
-  
-  .image-figure.image-medium {
-    max-width: 100%;
-  }
-}
