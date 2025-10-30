@@ -1,0 +1,57 @@
+<!-- Enhanced social media tags -->
+{{ $image := "" }}
+{{ $description := "" }}
+{{ $title := .Title }}
+
+<!-- Set description -->
+{{ if .Description }}
+  {{ $description = .Description }}
+{{ else if .Summary }}
+  {{ $description = .Summary | plainify | truncate 160 }}
+{{ else if .Site.Params.description }}
+  {{ $description = .Site.Params.description }}
+{{ end }}
+
+<!-- Set image -->
+{{ if .Params.image }}
+  {{ $image = .Params.image }}
+{{ else if .Params.featured_image }}
+  {{ $image = .Params.featured_image }}
+{{ else if .Site.Params.ogimage }}
+  {{ $image = .Site.Params.ogimage }}
+{{ end }}
+
+<!-- Make sure image is absolute URL -->
+{{ if and $image (not (hasPrefix $image "http")) }}
+  {{ $image = absURL $image }}
+{{ end }}
+
+<!-- OpenGraph tags -->
+<meta property="og:title" content="{{ $title }} | {{ .Site.Title }}" />
+<meta property="og:description" content="{{ $description }}" />
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+{{ with $image }}
+<meta property="og:image" content="{{ . }}" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+{{ end }}
+
+<!-- Twitter Card tags -->
+{{ if $image }}
+<meta name="twitter:card" content="{{ .Site.Params.twitterCardType | default "summary_large_image" }}" />
+{{ else }}
+<meta name="twitter:card" content="summary" />
+{{ end }}
+{{ with .Site.Params.twitterSite }}<meta name="twitter:site" content="{{ . }}" />{{ end }}
+{{ with .Site.Params.twitterCreator }}<meta name="twitter:creator" content="{{ . }}" />{{ end }}
+<meta name="twitter:title" content="{{ $title }} | {{ .Site.Title }}" />
+<meta name="twitter:description" content="{{ $description }}" />
+{{ with $image }}<meta name="twitter:image" content="{{ . }}" />{{ end }}
+
+<!-- Custom CSS for image captions -->
+{{ $customCSS := resources.Get "custom.css" }}
+{{ if $customCSS }}
+  {{ $customCSS := $customCSS | minify | fingerprint }}
+  <link href="{{ $customCSS.RelPermalink }}" rel="stylesheet">
+{{ end }}

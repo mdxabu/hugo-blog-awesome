@@ -1,0 +1,23 @@
+{{- $alt := .Text -}}
+{{- $src := .Destination -}}
+{{- $title := .Title -}}
+
+{{- /* Check if the image path starts with / (absolute from static) */ -}}
+{{- if hasPrefix $src "/" -}}
+  {{- /* Path is already absolute from root */ -}}
+{{- else if hasPrefix $src "static/" -}}
+  {{- /* Remove 'static/' prefix and add leading slash */ -}}
+  {{- $src = printf "/%s" (strings.TrimPrefix "static/" $src) -}}
+{{- else if or (hasPrefix $src "http://") (hasPrefix $src "https://") -}}
+  {{- /* External URL, keep as is */ -}}
+{{- else -}}
+  {{- /* Relative path, add leading slash */ -}}
+  {{- $src = printf "/%s" $src -}}
+{{- end -}}
+
+<figure class="image-figure">
+  <img src="{{ $src | safeURL }}" alt="{{ $alt }}" {{ with $title }}title="{{ . }}"{{ end }} loading="lazy">
+  {{- if $title -}}
+  <figcaption>{{ $title | markdownify }}</figcaption>
+  {{- end -}}
+</figure>
