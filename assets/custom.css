@@ -14,7 +14,8 @@
   margin-left: auto !important;
   margin-right: auto !important;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /* Removed decorative shadow per request */
+  box-shadow: none !important;
 }
 
 .image-figure figcaption {
@@ -34,7 +35,8 @@
   }
   
   .image-figure img {
-    box-shadow: #6d6969;
+    /* Ensure no shadow in dark mode */
+    box-shadow: none !important;
   }
 }
 
@@ -44,5 +46,6 @@
 }
 
 [data-theme="dark"] .image-figure img {
-  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+  /* No shadow for dark theme toggle */
+  box-shadow: none !important;
 }
