@@ -193,7 +193,18 @@
   border-color: #046293;
 }
 
-.resp-sharing-button--email {
+.resp-sharing-button--bluesky {
+  background-color: #1185fe;
+  border-color: #1185fe;
+}
+
+.resp-sharing-button--bluesky:hover,
+.resp-sharing-button--bluesky:active {
+  background-color: #0a6edb;
+  border-color: #0a6edb;
+}
+
+.resp-sharing-button--reddit {
   background-color: #777
 }
 
