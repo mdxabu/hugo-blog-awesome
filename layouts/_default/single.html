@@ -11,11 +11,19 @@
                     <time datetime="{{ $ISO_time }}" itemprop="datePublished"> {{ . | time.Format $configDateFormat }} </time>
                 </div>
                 {{ end }}
+                {{ if .Params.tags }}
+            <div class="post-tags">
+                {{ range .Params.tags }}
+                <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}/" class="post-tag">#{{ . }}</a>
+                {{ end }}
+            </div>
             </header>
             {{ partial "toc.html" .}}
             <div class="page-content">
                 {{ .Content }}
             </div>
+            
+            {{ end }}
         </article>
 
         {{/*  <!-- Social Media Sharing Buttons -->

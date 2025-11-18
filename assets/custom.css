@@ -255,3 +255,52 @@
 [data-theme="dark"] .share-heading {
   color: #ddd;
 }
+
+/* Post Tags Styling */
+.post-tags {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.post-tag {
+  color: #2698ba !important;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.post-tag:hover {
+  color: #2698ba !important;
+  opacity: 0.7;
+}
+
+.post-tag:active,
+.post-tag:focus {
+  color: #2698ba !important;
+}
+
+/* Dark mode for tags */
+@media (prefers-color-scheme: dark) {
+  .post-tag {
+    color: #2698ba !important;
+  }
+  
+  .post-tag:hover,
+  .post-tag:active,
+  .post-tag:focus {
+    color: #2698ba !important;
+  }
+}
+
+[data-theme="dark"] .post-tag {
+  color: #2698ba !important;
+}
+
+[data-theme="dark"] .post-tag:hover,
+[data-theme="dark"] .post-tag:active,
+[data-theme="dark"] .post-tag:focus {
+  color: #2698ba !important;
+}
