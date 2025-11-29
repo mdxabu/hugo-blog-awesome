@@ -4,15 +4,7 @@
     background-color: $dark-black;
   }
 
-  // Headings
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: #2698ba;
-  }
+  // Headings - use same color as body text
 
   // Table
   table {
@@ -100,7 +92,7 @@
 
   // horizontal rule
   hr {
-    border-color: $dark-light;
+    border-color: $dark-smoke;
   }
 
   // Post Meta
