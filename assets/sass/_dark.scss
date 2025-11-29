@@ -31,12 +31,12 @@
   // Post
   .page-content {
     a {
-      color: $dark-text-link-blue;
+      color: #2698ba;
 
       &:hover,
       &:active,
       &:focus {
-        color: $dark-text-link-blue-active;
+        color: #2698ba;
       }
     }
 
@@ -59,6 +59,14 @@
   // ToC
   .toc {
     background-color: $dark-toc-bg;
+
+    a {
+      color: #2698ba;
+
+      &:hover {
+        color: #2698ba;
+      }
+    }
   }
 
   // Go to top
@@ -116,7 +124,7 @@
     text-decoration-color: $dark-smoke;
 
     &:hover {
-      color: $dark-text-link-blue;
+      color: #2698ba;
     }
 
     &:focus {
