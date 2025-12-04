@@ -7,6 +7,14 @@
     <main class="main-404" aria-label="Content">
         <h1>{{ T "errors.404" }}</h1>
         <p>{{ T "errors.404_description" }}</p>
+        <script>
+            const images = [
+                "https://i.kym-cdn.com/entries/icons/original/000/031/671/cover1.jpg",
+                "https://i.imgflip.com/6ysoab.jpg?a490224"
+            ];
+            const randomImage = images[Math.floor(Math.random() * images.length)];
+            document.write('<img src="' + randomImage + '">');
+        </script>
     </main>
 </div>
 {{ end }}
