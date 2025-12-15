@@ -1,5 +1,16 @@
-{{/*  <hr style="margin-top: 40px; margin-bottom: 40px;" />  */}}
-<script src="https://giscus.app/client.js"
+{{- $showComments := false -}}
+{{- if isset .Site.Params "comments" -}}
+    {{- $showComments = .Site.Params.comments -}}
+{{- end -}}
+{{- if isset .Params "comments" -}}
+    {{- $showComments = .Params.comments -}}
+{{- end -}}
+
+{{- if $showComments -}}
+<div id="comments" style="margin-top: 40px">
+    <hr style="margin-bottom: 40px" />
+    <script
+        src="https://giscus.app/client.js"
         data-repo="mdxabu/mdxabu.github.io"
         data-repo-id="R_kgDOLs5FtQ"
         data-category="Blogs"
@@ -9,8 +20,59 @@
         data-reactions-enabled="1"
         data-emit-metadata="0"
         data-input-position="top"
-        data-theme="light_protanopia"
+        data-theme="transparent_dark"
         data-lang="en"
         crossorigin="anonymous"
-        async>
+        async
+    ></script>
+</div>
+
+<script>
+    // Function to set Giscus theme
+    function setGiscusTheme(theme) {
+        const giscusTheme = theme === 'dark' ? 'transparent_dark' : 'light';
+        
+        function sendMessage() {
+            const iframe = document.querySelector('iframe.giscus-frame');
+            if (iframe) {
+                iframe.contentWindow.postMessage(
+                    { giscus: { setConfig: { theme: giscusTheme } } },
+                    'https://giscus.app'
+                );
+            }
+        }
+        
+        sendMessage();
+    }
+
+    // Set initial theme when Giscus loads
+    window.addEventListener('message', function(event) {
+        if (event.origin !== 'https://giscus.app') return;
+        
+        const theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        setGiscusTheme(theme);
+    });
+
+    // Watch for theme changes
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.attributeName === 'class') {
+                const theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+                setGiscusTheme(theme);
+            }
+        });
+    });
+
+    // Start observing the document element for class changes
+    observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class']
+    });
+
+    // Set initial theme
+    document.addEventListener('DOMContentLoaded', function() {
+        const theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        setTimeout(() => setGiscusTheme(theme), 1000);
+    });
 </script>
+{{- end -}}

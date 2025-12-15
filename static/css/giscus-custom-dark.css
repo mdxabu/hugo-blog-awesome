@@ -1,0 +1,145 @@
+:root {
+  color-scheme: dark;
+  
+  /* Main colors - slightly lighter than site background for contrast */
+  --color-canvas-default: #22222a;
+  --color-canvas-overlay: #2a2a33;
+  --color-canvas-inset: #22222a;
+  --color-canvas-subtle: #2a2a33;
+  
+  /* Text colors */
+  --color-fg-default: #c5c8cf;
+  --color-fg-muted: #8a8f99;
+  --color-fg-subtle: #8a8f99;
+  
+  /* Border colors - more visible */
+  --color-border-default: #3a3d46;
+  --color-border-muted: #32353e;
+  
+  /* Button colors */
+  --color-btn-bg: #35383f;
+  --color-btn-border: #3a3d46;
+  --color-btn-text: #c5c8cf;
+  --color-btn-hover-bg: #3d4049;
+  --color-btn-hover-border: #4a4d56;
+  
+  /* Primary button (your cyan) */
+  --color-btn-primary-bg: #2698ba;
+  --color-btn-primary-border: #2698ba;
+  --color-btn-primary-text: #ffffff;
+  --color-btn-primary-hover-bg: #1f7a99;
+  --color-btn-primary-hover-border: #1f7a99;
+  
+  /* Links */
+  --color-accent-fg: #2698ba;
+  --color-accent-emphasis: #2698ba;
+  
+  /* Code blocks */
+  --color-neutral-muted: #35383f;
+  --color-prettylights-syntax-comment: #8a8f99;
+  --color-prettylights-syntax-constant: #c5c8cf;
+  --color-prettylights-syntax-entity: #2698ba;
+  --color-prettylights-syntax-storage-modifier-import: #c5c8cf;
+  --color-prettylights-syntax-entity-tag: #2698ba;
+  --color-prettylights-syntax-keyword: #2698ba;
+  --color-prettylights-syntax-string: #c5c8cf;
+  --color-prettylights-syntax-variable: #c5c8cf;
+  --color-prettylights-syntax-brackethighlighter-unmatched: #c5c8cf;
+  --color-prettylights-syntax-invalid-illegal-text: #c5c8cf;
+  --color-prettylights-syntax-invalid-illegal-bg: #22222a;
+  --color-prettylights-syntax-carriage-return-text: #c5c8cf;
+  --color-prettylights-syntax-carriage-return-bg: #22222a;
+  --color-prettylights-syntax-string-regexp: #c5c8cf;
+  --color-prettylights-syntax-markup-list: #c5c8cf;
+  --color-prettylights-syntax-markup-heading: #eaeaea;
+  --color-prettylights-syntax-markup-italic: #c5c8cf;
+  --color-prettylights-syntax-markup-bold: #eaeaea;
+  --color-prettylights-syntax-markup-deleted-text: #c5c8cf;
+  --color-prettylights-syntax-markup-deleted-bg: #22222a;
+  --color-prettylights-syntax-markup-inserted-text: #c5c8cf;
+  --color-prettylights-syntax-markup-inserted-bg: #22222a;
+  --color-prettylights-syntax-markup-changed-text: #c5c8cf;
+  --color-prettylights-syntax-markup-changed-bg: #22222a;
+  --color-prettylights-syntax-markup-ignored-text: #8a8f99;
+  --color-prettylights-syntax-markup-ignored-bg: #22222a;
+  --color-prettylights-syntax-meta-diff-range: #2698ba;
+  --color-prettylights-syntax-brackethighlighter-angle: #c5c8cf;
+  --color-prettylights-syntax-sublimelinter-gutter-mark: #8a8f99;
+  --color-prettylights-syntax-constant-other-reference-link: #c5c8cf;
+}
+
+/* Additional overrides for better visibility */
+.gsc-comment-box,
+.gsc-comment {
+  background-color: #22222a !important;
+  border: 1px solid #3a3d46 !important;
+}
+
+.gsc-comment-box-tabs {
+  border-bottom: 1px solid #3a3d46 !important;
+}
+
+.gsc-timeline {
+  border-color: #3a3d46 !important;
+}
+
+.gsc-comment-box-textarea,
+.gsc-comment-box-textarea:focus {
+  background-color: #2a2a33 !important;
+  border: 1px solid #3a3d46 !important;
+  color: #c5c8cf !important;
+}
+
+.gsc-comment-box-textarea:focus {
+  border-color: #4a4d56 !important;
+  box-shadow: 0 0 0 2px rgba(38, 152, 186, 0.15) !important;
+}
+
+.gsc-comment-content a {
+  color: #2698ba !important;
+}
+
+.gsc-comment-author-name {
+  color: #eaeaea !important;
+  font-weight: 600;
+}
+
+.gsc-comment-header {
+  border-bottom: 1px solid #32353e !important;
+}
+
+.gsc-reply {
+  background-color: #25252d !important;
+  border-left: 2px solid #3a3d46 !important;
+}
+
+blockquote {
+  border-left: 3px solid #4a4d56 !important;
+  color: #9b9ba3 !important;
+  background-color: rgba(58, 61, 70, 0.1) !important;
+}
+
+code {
+  background-color: #35383f !important;
+  border: 1px solid #3a3d46 !important;
+  color: #c5c8cf !important;
+}
+
+pre {
+  background-color: #2a2a33 !important;
+  border: 1px solid #3a3d46 !important;
+}
+
+.gsc-reactions-button {
+  border: 1px solid #3a3d46 !important;
+}
+
+.gsc-reactions-button:hover {
+  background-color: #2a2a33 !important;
+  border-color: #4a4d56 !important;
+}
+
+/* Hover effects */
+.gsc-comment:hover {
+  background-color: #25252d !important;
+}
