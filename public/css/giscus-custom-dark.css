@@ -1,0 +1,218 @@
+/* =========================================================
+   GISCUS CUSTOM DARK THEME
+   Aligned with site dark SCSS
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   Base
+   --------------------------------------------------------- */
+
+main,
+.gsc-main {
+  background-color: #1c1c1d !important;
+  color: #babdc4 !important;
+}
+
+/* ---------------------------------------------------------
+   Comment Box
+   --------------------------------------------------------- */
+
+.gsc-comment-box,
+.gsc-comment-box-tabs,
+.gsc-comment-box-tab {
+  background-color: #1c1c1d !important;
+  border: 1px solid #2b2d33 !important;
+  color: #babdc4 !important;
+}
+
+.gsc-comment-box-tab[aria-selected="true"] {
+  border-bottom: 1px solid #2698ba !important;
+}
+
+/* ---------------------------------------------------------
+   Textarea
+   --------------------------------------------------------- */
+
+.gsc-comment-box-textarea,
+textarea {
+  background-color: #202124 !important;
+  border: 1px solid #2b2d33 !important;
+  color: #babdc4 !important;
+}
+
+.gsc-comment-box-textarea:focus,
+textarea:focus {
+  border-color: #2698ba !important;
+  outline: none !important;
+  box-shadow: 0 0 0 1px rgba(38, 152, 186, 0.25) !important;
+}
+
+/* ---------------------------------------------------------
+   Buttons
+   --------------------------------------------------------- */
+
+.gsc-comment-box-button,
+button {
+  background-color: #2698ba !important;
+  border: 1px solid #2698ba !important;
+  color: #ffffff !important;
+}
+
+.gsc-comment-box-button:hover,
+button:hover {
+  background-color: #1f7a99 !important;
+  border-color: #1f7a99 !important;
+}
+
+/* ---------------------------------------------------------
+   Comments (flat, site-like)
+   --------------------------------------------------------- */
+
+.gsc-comment {
+  background-color: #1c1c1d !important;
+  border-top: 1px solid #2b2d33 !important;
+}
+
+.gsc-comment:hover {
+  background-color: #1e1f22 !important;
+}
+
+/* Replies */
+.gsc-reply {
+  background-color: #1c1c1d !important;
+  border-left: 2px solid #2b2d33 !important;
+}
+
+/* ---------------------------------------------------------
+   Comment Content
+   --------------------------------------------------------- */
+
+.gsc-comment-content {
+  background-color: transparent !important;
+  color: #babdc4 !important;
+}
+
+/* Author & meta */
+.gsc-comment-author-name {
+  color: #eaeaea !important;
+  font-weight: 600 !important;
+}
+
+.gsc-comment-meta,
+.gsc-comment-edited {
+  color: #8a8f99 !important;
+}
+
+/* ---------------------------------------------------------
+   Links (match site)
+   --------------------------------------------------------- */
+
+a,
+.gsc-comment-content a {
+  color: #2698ba !important;
+}
+
+a:hover,
+.gsc-comment-content a:hover {
+  color: #2698ba !important;
+  text-decoration: underline !important;
+}
+
+/* ---------------------------------------------------------
+   Inline code & blocks (match site)
+   --------------------------------------------------------- */
+
+.gsc-comment-content code {
+  background-color: #232428 !important;
+  color: #c2c4ca !important;
+  border: 1px solid rgba(128, 128, 128, 0.1) !important;
+  padding: 1px 3px !important;
+  border-radius: 2px !important;
+}
+
+.gsc-comment-content pre {
+  background-color: #232428 !important;
+  border: 1px solid #2b2d33 !important;
+}
+
+/* ---------------------------------------------------------
+   Blockquotes (site style)
+   --------------------------------------------------------- */
+
+.gsc-comment-content blockquote {
+  border-left: 3px solid #2b2d33 !important;
+  color: #9b9ba3 !important;
+  background-color: transparent !important;
+}
+
+/* ---------------------------------------------------------
+   HR
+   --------------------------------------------------------- */
+
+.gsc-comment-content hr {
+  border-color: #2b2d33 !important;
+}
+
+/* ---------------------------------------------------------
+   Reactions
+   --------------------------------------------------------- */
+
+.gsc-reactions,
+.gsc-reactions-count {
+  background-color: #1c1c1d !important;
+  border-color: #2b2d33 !important;
+  color: #babdc4 !important;
+}
+
+.gsc-reactions-button {
+  background-color: transparent !important;
+  border: 1px solid #2b2d33 !important;
+  color: #babdc4 !important;
+}
+
+.gsc-reactions-button:hover {
+  background-color: #1e1f22 !important;
+  border-color: #2698ba !important;
+}
+
+/* ---------------------------------------------------------
+   Timeline & Pagination
+   --------------------------------------------------------- */
+
+.gsc-timeline,
+.gsc-pagination {
+  background-color: #1c1c1d !important;
+  border-color: #2b2d33 !important;
+}
+
+/* ---------------------------------------------------------
+   Header
+   --------------------------------------------------------- */
+
+.gsc-header {
+  color: #babdc4 !important;
+}
+
+.gsc-header a {
+  color: #2698ba !important;
+}
+
+/* ---------------------------------------------------------
+   Scrollbar (same feel as site)
+   --------------------------------------------------------- */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1c1c1d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2b2d33;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4a4d56;
+}

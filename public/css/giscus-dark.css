@@ -1,0 +1,239 @@
+/* =========================================================
+   GISCUS DARK THEME – MATCHING YOUR SITE
+   ========================================================= */
+
+:root {
+  color-scheme: dark;
+
+  /* Base surfaces */
+  --surface-1: #1c1c1d; /* page background */
+  --surface-2: #22222a; /* cards / comments */
+  --surface-3: #25252d; /* hover / active */
+  --surface-input: #2a2a33;
+
+  /* Borders */
+  --border-default: #32353e;
+  --border-strong: #3a3d46;
+
+  /* Text */
+  --text-main: #babdc4;
+  --text-muted: #8a8f99;
+  --text-strong: #eaeaea;
+
+  /* Accent */
+  --accent: #2698ba;
+  --accent-hover: #1f7a99;
+  --accent-soft: #8faec9;
+}
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+main,
+.gsc-main {
+  background-color: var(--surface-1) !important;
+  color: var(--text-main) !important;
+}
+
+/* =========================================================
+   COMMENT BOX
+   ========================================================= */
+
+.gsc-comment-box,
+.gsc-comment-box-tabs,
+.gsc-comment-box-tab {
+  background-color: var(--surface-1) !important;
+  border-color: var(--border-default) !important;
+  color: var(--text-main) !important;
+}
+
+.gsc-comment-box-tab[aria-selected="true"] {
+  border-bottom: 2px solid var(--accent) !important;
+}
+
+/* =========================================================
+   TEXTAREA
+   ========================================================= */
+
+.gsc-comment-box-textarea,
+textarea {
+  background-color: var(--surface-input) !important;
+  border: 1px solid var(--border-default) !important;
+  color: var(--text-main) !important;
+}
+
+.gsc-comment-box-textarea:focus,
+textarea:focus {
+  border-color: var(--accent) !important;
+  outline: none !important;
+  box-shadow:
+    0 0 0 1px rgba(38, 152, 186, 0.4),
+    0 0 8px rgba(38, 152, 186, 0.15) !important;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.gsc-comment-box-button,
+button {
+  background-color: var(--accent) !important;
+  border: 1px solid var(--accent) !important;
+  color: #ffffff !important;
+}
+
+.gsc-comment-box-button:hover,
+button:hover {
+  background-color: var(--accent-hover) !important;
+  border-color: var(--accent-hover) !important;
+}
+
+/* =========================================================
+   COMMENTS (ELEVATION FIX)
+   ========================================================= */
+
+.gsc-comment {
+  background-color: var(--surface-2) !important;
+  border: 1px solid var(--border-default) !important;
+}
+
+.gsc-comment:hover {
+  background-color: var(--surface-3) !important;
+}
+
+/* Replies */
+.gsc-reply {
+  background-color: #1f1f26 !important;
+  border-left: 2px solid var(--accent) !important;
+}
+
+/* =========================================================
+   COMMENT CONTENT
+   ========================================================= */
+
+.gsc-comment-content {
+  background-color: transparent !important;
+  color: var(--text-main) !important;
+}
+
+/* Author & meta */
+.gsc-comment-author-name {
+  color: var(--text-strong) !important;
+  font-weight: 600 !important;
+}
+
+.gsc-comment-meta,
+.gsc-comment-edited {
+  color: var(--accent-soft) !important;
+}
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+a,
+.gsc-comment-content a {
+  color: var(--accent) !important;
+}
+
+a:hover,
+.gsc-comment-content a:hover {
+  text-decoration: underline !important;
+}
+
+/* =========================================================
+   CODE BLOCKS
+   ========================================================= */
+
+.gsc-comment-content code {
+  background-color: var(--surface-input) !important;
+  color: var(--text-main) !important;
+  border: 1px solid var(--border-default) !important;
+  padding: 1px 4px !important;
+  border-radius: 3px !important;
+}
+
+.gsc-comment-content pre {
+  background-color: var(--surface-input) !important;
+  border: 1px solid var(--border-default) !important;
+}
+
+/* =========================================================
+   BLOCKQUOTES & HR
+   ========================================================= */
+
+.gsc-comment-content blockquote {
+  border-left: 3px solid var(--accent-soft) !important;
+  color: var(--text-muted) !important;
+}
+
+.gsc-comment-content hr {
+  border-color: var(--border-default) !important;
+}
+
+/* =========================================================
+   REACTIONS
+   ========================================================= */
+
+.gsc-reactions,
+.gsc-reactions-count {
+  background-color: var(--surface-1) !important;
+  border-color: var(--border-default) !important;
+  color: var(--text-main) !important;
+}
+
+.gsc-reactions-button {
+  background-color: var(--surface-input) !important;
+  border: 1px solid var(--border-default) !important;
+  color: var(--text-main) !important;
+}
+
+.gsc-reactions-button:hover {
+  background-color: var(--surface-3) !important;
+  border-color: var(--border-strong) !important;
+}
+
+/* =========================================================
+   TIMELINE & PAGINATION
+   ========================================================= */
+
+.gsc-timeline,
+.gsc-pagination {
+  border-color: var(--border-default) !important;
+  background-color: var(--surface-1) !important;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.gsc-header {
+  color: var(--text-main) !important;
+}
+
+.gsc-header a {
+  color: var(--accent) !important;
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-soft);
+}
