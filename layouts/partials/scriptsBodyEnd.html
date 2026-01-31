@@ -4,6 +4,8 @@
     {{ $main = $main | append (resources.Get "js/goToTop.js") }}
 {{ end }}
 
+{{ $main = $main | append (resources.Get "js/code-copy.js") }}
+
 {{ $custom := slice }}
 {{ range $script := .Site.Params.additionalScripts }}
     {{ $script_res := resources.Get $script }}

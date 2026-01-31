@@ -15,12 +15,12 @@ code {
 li > code,
 p > code {
     white-space: pre-wrap;
-    font-size: 0.9em;
+    font-size: 0.85em;
     padding: 1px 3px;
     position: relative;
     top: -1px;
-    color: $inline-code-text;
-    background-color: $inline-code-bg;
+    color: $dark-inline-code-text;
+    background-color: $dark-inline-code-bg;
     border-radius: 2px;
     border: 1px solid rgba(128, 128, 128, 0.1);
 }
@@ -29,10 +29,11 @@ p > code {
 pre {
     background-color: #f6f8fa;
     border: 1px solid #e1e4e8;
-    border-radius: 0.3rem;
+    border-radius: 0.5rem;
     padding: 0.5rem 1rem;
     display: block;
     overflow-x: auto;
+    position: relative;
 
     @include media-query($on-mobile) {
         margin: 0 calc(51% - 51vw);
@@ -62,6 +63,7 @@ pre {
         line-height: 1.5;
         display: block;
         border: 0;
+        font-size: 0.85em;
     }
 }
 
