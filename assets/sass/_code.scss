@@ -1,86 +1,87 @@
 // Code
 code {
-  font-family: $mono-family;
-  text-rendering: optimizeLegibility;
-  font-feature-settings: "calt" 1;
-  font-variant-ligatures: normal;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
-  font-size: inherit;
+    font-family: $mono-family;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "calt" 1;
+    font-variant-ligatures: normal;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    font-size: inherit;
 }
+
 // Inline code
-li>code,
+li > code,
 p > code {
-  white-space: pre-wrap;
-  font-size: 0.9em;
-  padding: 1px 3px;
-  position: relative;
-  top: -1px;
-  color: $inline-code-text;
-  background-color: $inline-code-bg;
-  border-radius: 2px;
-  border: 1px solid rgba(128,128,128,0.1);
+    white-space: pre-wrap;
+    font-size: 0.9em;
+    padding: 1px 3px;
+    position: relative;
+    top: -1px;
+    color: $inline-code-text;
+    background-color: $inline-code-bg;
+    border-radius: 2px;
+    border: 1px solid rgba(128, 128, 128, 0.1);
 }
-// Codeblock Theme
+
+// Codeblock Theme - Light Mode (Default)
 pre {
-  background-color: #1a1b21;
-  border-radius: .3rem;
-  padding: .5rem 1rem;
-  display: block;
-  overflow-x: auto;
-
-  @include media-query($on-mobile) {
-    margin: 0 calc(51% - 51vw);
-  }
-
-  // Configure scrollbars for code blocks
-  &::-webkit-scrollbar {
-    height: .5rem;
-  }
-  // Set scrollbar background, track and thumb colors
-  &::-webkit-scrollbar-track {
-    background: #606071;
-    border-radius: .1rem;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: #999ea2;
-    border-radius: .3rem;
-  }
-  &::-webkit-scrollbar-thumb:hover {
-    background: #424546;
-  }
-
-  > code {
-    color: white;
-    max-width: 50rem;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.5;
+    background-color: #f6f8fa;
+    border: 1px solid #e1e4e8;
+    border-radius: 0.3rem;
+    padding: 0.5rem 1rem;
     display: block;
-    border: 0;
-  }
+    overflow-x: auto;
+
+    @include media-query($on-mobile) {
+        margin: 0 calc(51% - 51vw);
+    }
+
+    // Configure scrollbars for code blocks - Light theme
+    &::-webkit-scrollbar {
+        height: 0.5rem;
+    }
+    &::-webkit-scrollbar-track {
+        background: #e1e4e8;
+        border-radius: 0.1rem;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #959da5;
+        border-radius: 0.3rem;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+        background: #6a737d;
+    }
+
+    > code {
+        color: #24292e;
+        max-width: 50rem;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.5;
+        display: block;
+        border: 0;
+    }
 }
 
 .highlight table td {
-  padding: 5px;
+    padding: 5px;
 }
 
 .highlight table pre {
-  margin: 0;
+    margin: 0;
 }
 
+// Light theme syntax highlighting
 .highlight,
 .highlight .w {
-  color: #fbf1c7;
-  // background-color: #1a1b21;
+    color: #24292e;
 }
 
 .highlight .err {
-  color: #fb4934;
-  // background-color: #1a1b21;
-  font-weight: bold;
+    color: #d73a49;
+    font-weight: bold;
 }
 
 .highlight .c,
@@ -88,41 +89,41 @@ pre {
 .highlight .cm,
 .highlight .c1,
 .highlight .cs {
-  color: #928374;
-  font-style: italic;
+    color: #6a737d;
+    font-style: italic;
 }
 
 .highlight .cp {
-  color: #8ec07c;
+    color: #22863a;
 }
 
 .highlight .nt {
-  color: #fb4934;
+    color: #22863a;
 }
 
 .highlight .o,
 .highlight .ow {
-  color: #fbf1c7;
+    color: #d73a49;
 }
 
 .highlight .p,
 .highlight .pi {
-  color: #fbf1c7;
+    color: #24292e;
 }
 
 .highlight .gi {
-  color: #b8bb26;
-  background-color: #282828;
+    color: #22863a;
+    background-color: #f0fff4;
 }
 
 .highlight .gd {
-  color: #fb4934;
-  background-color: #282828;
+    color: #d73a49;
+    background-color: #ffeef0;
 }
 
 .highlight .gh {
-  color: #b8bb26;
-  font-weight: bold;
+    color: #005cc5;
+    font-weight: bold;
 }
 
 .highlight .k,
@@ -130,19 +131,19 @@ pre {
 .highlight .kp,
 .highlight .kr,
 .highlight .kv {
-  color: #fb4934;
+    color: #d73a49;
 }
 
 .highlight .kc {
-  color: #d3869b;
+    color: #005cc5;
 }
 
 .highlight .kt {
-  color: #fabd2f;
+    color: #d73a49;
 }
 
 .highlight .kd {
-  color: #fe8019;
+    color: #d73a49;
 }
 
 .highlight .s,
@@ -153,38 +154,36 @@ pre {
 .highlight .sh,
 .highlight .sx,
 .highlight .s1 {
-  color: #b8bb26;
-  font-style: italic;
+    color: #032f62;
+    font-style: normal;
 }
 
 .highlight .si {
-  color: #b8bb26;
-  font-style: italic;
+    color: #032f62;
 }
 
 .highlight .sr {
-  color: #b8bb26;
-  font-style: italic;
+    color: #032f62;
 }
 
 .highlight .se {
-  color: #fe8019;
+    color: #e36209;
 }
 
 .highlight .nn {
-  color: #8ec07c;
+    color: #6f42c1;
 }
 
 .highlight .nc {
-  color: #8ec07c;
+    color: #6f42c1;
 }
 
 .highlight .no {
-  color: #d3869b;
+    color: #005cc5;
 }
 
 .highlight .na {
-  color: #b8bb26;
+    color: #005cc5;
 }
 
 .highlight .m,
@@ -195,9 +194,9 @@ pre {
 .highlight .mo,
 .highlight .mb,
 .highlight .mx {
-  color: #d3869b;
+    color: #005cc5;
 }
 
 .highlight .ss {
-  color: #83a598;
+    color: #005cc5;
 }
