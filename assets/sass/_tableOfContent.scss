@@ -5,9 +5,18 @@ details {
 
 .toc {
     margin: 1.1rem 0 1rem 0;
-    padding: .5rem 1rem .5rem 1rem;
-    border-radius: .3rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border-radius: 0.3rem;
     background-color: $toc-bg;
+
+    a {
+        color: #2698ba;
+        text-decoration: none;
+
+        &:hover {
+            color: #2698ba;
+        }
+    }
 
     ul {
         padding-top: 1rem;
@@ -15,8 +24,8 @@ details {
         padding-left: 1rem;
 
         li {
-        margin-bottom: 0.5em;
-        line-height: 1.4;
+            margin-bottom: 0.5em;
+            line-height: 1.4;
         }
     }
 }
