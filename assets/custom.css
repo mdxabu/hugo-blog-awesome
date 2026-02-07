@@ -405,3 +405,130 @@ pre:hover .code-copy-button {
         opacity: 1;
     }
 }
+
+/* ========================= */
+/* Other Blogs Section       */
+/* ========================= */
+.other-blogs {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e1e4e8;
+}
+
+.other-blogs__heading {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    color: #1a1a1a;
+    letter-spacing: 0.02rem;
+}
+
+.other-blogs__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.other-blogs__item {
+    margin-bottom: 0;
+}
+
+.other-blogs__item::before {
+    content: none;
+}
+
+.other-blogs__link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    text-decoration: none !important;
+    color: inherit !important;
+    border-bottom: 1px solid #f0f0f0;
+    border-radius: 4px;
+}
+
+/* Remove the external link arrow for other blog links */
+.other-blogs__link[target="_blank"]::after,
+.other-blogs__link::after {
+    content: none !important;
+}
+
+.other-blogs__title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #2698ba;
+    flex: 1;
+    margin-right: 1rem;
+}
+
+.other-blogs__date {
+    font-size: 0.8rem;
+    color: #888;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.other-blogs__item:last-child .other-blogs__link {
+    border-bottom: none;
+}
+
+/* Dark mode support for other blogs */
+@media (prefers-color-scheme: dark) {
+    html:not(.light) .other-blogs {
+        border-top-color: #333;
+    }
+
+    html:not(.light) .other-blogs__heading {
+        color: #e0e0e0;
+    }
+
+    html:not(.light) .other-blogs__link {
+        border-bottom-color: #2a2a2a;
+    }
+
+    html:not(.light) .other-blogs__title {
+        color: #2698ba;
+    }
+
+    html:not(.light) .other-blogs__date {
+        color: #777;
+    }
+}
+
+[data-theme="dark"] .other-blogs {
+    border-top-color: #333;
+}
+
+[data-theme="dark"] .other-blogs__heading {
+    color: #e0e0e0;
+}
+
+[data-theme="dark"] .other-blogs__link {
+    border-bottom-color: #2a2a2a;
+}
+
+[data-theme="dark"] .other-blogs__title {
+    color: #2698ba;
+}
+
+[data-theme="dark"] .other-blogs__date {
+    color: #777;
+}
+
+/* Mobile responsiveness for other blogs */
+@media screen and (max-width: 768px) {
+    .other-blogs__link {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+
+    .other-blogs__title {
+        margin-right: 0;
+    }
+
+    .other-blogs__date {
+        font-size: 0.75rem;
+    }
+}

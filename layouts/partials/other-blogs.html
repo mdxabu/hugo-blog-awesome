@@ -1,0 +1,31 @@
+{{/* Other Blogs Section - Controlled by frontmatter param "otherBlogs" */}}
+{{/* Default is true (shown). Set otherBlogs: false in frontmatter to hide. */}}
+
+{{ $showOtherBlogs := true }}
+{{ if isset .Params "otherblogs" }}
+  {{ $showOtherBlogs = .Params.otherblogs }}
+{{ end }}
+
+{{ if $showOtherBlogs }}
+  {{ $sectionPages := where .Site.RegularPages "Section" .Section }}
+  {{ $otherPages := where $sectionPages "Permalink" "ne" .Permalink }}
+  {{ $otherPages = $otherPages.ByDate.Reverse }}
+  {{ $otherPages = first 2 $otherPages }}
+
+  {{ if gt (len $otherPages) 0 }}
+  <section class="other-blogs">
+    <h3 class="other-blogs__heading">Other Blogs</h3>
+    <ul class="other-blogs__list">
+      {{ range $otherPages }}
+      <li class="other-blogs__item">
+        <a href="{{ .RelPermalink }}" class="other-blogs__link">
+          <span class="other-blogs__title">{{ .Title }}</span>
+          {{ $configDateFormat := $.Site.Params.dateFormat | default "January 2, 2006" }}
+          <span class="other-blogs__date">{{ .Date | time.Format $configDateFormat }}</span>
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+{{ end }}

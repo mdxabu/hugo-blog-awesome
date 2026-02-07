@@ -12,9 +12,9 @@
                 </div>
 
 
-               
 
-                
+
+
                 {{ end }}
                 {{ if .Params.tags }}
                 <div class="post-tags">
@@ -28,6 +28,7 @@
             <div class="page-content">
                 {{ .Content }}
             </div>
+            {{ partial "other-blogs.html" . }}
         </article>
         {{- partial "comments.html" . -}}
     </main>
