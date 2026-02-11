@@ -1,0 +1,54 @@
+/* =========================================================
+   GISCUS COMMENT SECTION – Rounded & Smooth Borders
+   Applies to both Light and Dark themes
+   ========================================================= */
+
+/* ---- Container wrapper ---- */
+#comments {
+    border: 1px solid $light;
+    border-radius: 16px;
+    padding: 20px;
+    overflow: hidden;
+    background-color: $white;
+    transition:
+        border-color 0.3s ease,
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* ---- Giscus wrapper div (injected by giscus.js) ---- */
+.giscus,
+.giscus-frame {
+    border-radius: 12px !important;
+    overflow: hidden;
+}
+
+/* ---- iframe itself ---- */
+iframe.giscus-frame {
+    border: none !important;
+    border-radius: 12px !important;
+}
+
+/* =========================================================
+   DARK THEME OVERRIDES
+   ========================================================= */
+
+html.dark,
+html:not(.light) {
+    @media (prefers-color-scheme: dark) {
+        #comments {
+            border-color: $dark-smoke;
+            background-color: $dark-black;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+    }
+}
+
+html.dark {
+    #comments {
+        border-color: $dark-smoke;
+        background-color: $dark-black;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+}
