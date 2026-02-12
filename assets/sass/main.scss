@@ -35,7 +35,7 @@ $dark-smoke: #4a4d56;
 $dark-gray: #767f87;
 
 //////////////// 3. Fonts preferences /////////////////
-$sans-family: Roboto, serif;
+$sans-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $mono-family: Consolas, monospace;
 $base-font-size: 17px;
 $medium-font-size: $base-font-size * 0.938;
@@ -44,7 +44,7 @@ $base-line-height: 1.85;
 
 // Font weight
 // $light-weight: 300; // uncomment if necessary
-$normal-weight: 500;
+$normal-weight: 400;
 $bold-weight: 700;
 // $black-weight: 900; // uncomment if necessary
 
