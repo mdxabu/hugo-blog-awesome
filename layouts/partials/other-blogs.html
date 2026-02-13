@@ -20,8 +20,8 @@
       <li class="other-blogs__item">
         <a href="{{ .RelPermalink }}" class="other-blogs__link">
           <span class="other-blogs__title">{{ .Title }}</span>
-          {{ $configDateFormat := $.Site.Params.dateFormat | default "January 2, 2006" }}
-          <span class="other-blogs__date">{{ .Date | time.Format $configDateFormat }}</span>
+          <!--{{ $configDateFormat := $.Site.Params.dateFormat | default "January 2, 2006" }}-->
+          <!--<span class="other-blogs__date">{{ .Date | time.Format $configDateFormat }}</span>-->
         </a>
       </li>
       {{ end }}
