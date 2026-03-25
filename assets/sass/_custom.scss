@@ -52,3 +52,18 @@ html.dark {
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     }
 }
+
+.header-subtitle {
+    font-size: 1.1rem;
+    margin-top: -15px;
+    margin-bottom: 30px;
+    opacity: 0.9;
+
+    &.center {
+        text-align: center;
+    }
+}
+
+.header-title.center {
+    text-align: center;
+}
