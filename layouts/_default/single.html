@@ -4,22 +4,43 @@
         <article>
             <header class="header">
                 <h1 class="header-title center">{{ .Title }}</h1>
+                <style>
+                /* Center date and tags in single post header and style tags */
+                .post-meta-center {
+                    text-align: center;
+                    margin-top: 0.5rem;
+                }
+                .post-meta-center .post-meta {
+                    display: block;
+                    color: #666;
+                }
+                .post-tags {
+                    margin-top: 0.5rem;
+                }
+                .post-tags a.post-tag {
+                    display: inline-block;
+                    margin: 0 0.35rem;
+                    color: inherit;
+                    text-decoration: none;
+                }
+                .post-tags a.post-tag:hover {
+                    text-decoration: underline;
+                }
+                </style>
                 {{ $configDateFormat := .Site.Params.dateFormat | default ":date_medium" }}
+                {{ $page := . }}
                 {{ with .Date }}
                 {{ $ISO_time := dateFormat "2006-01-02T15:04:05-07:00" . }}
-                <div class="post-meta">
-                    <time datetime="{{ $ISO_time }}" itemprop="datePublished"> {{ . | time.Format $configDateFormat }} </time>
-                </div>
-
-
-
-
-
-                {{ end }}
-                {{ if .Params.tags }}
-                <div class="post-tags">
-                    {{ range .Params.tags }}
-                    <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}/" class="post-tag">#{{ . }}</a>
+                <div class="post-meta-center">
+                    <div class="post-meta">
+                        <time datetime="{{ $ISO_time }}" itemprop="datePublished"> {{ . | time.Format $configDateFormat }} </time>
+                    </div>
+                    {{ if $page.Params.tags }}
+                    <div class="post-tags">
+                        {{ range $page.Params.tags }}
+                        <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}/" class="post-tag">#{{ . }}</a>
+                        {{ end }}
+                    </div>
                     {{ end }}
                 </div>
                 {{ end }}
