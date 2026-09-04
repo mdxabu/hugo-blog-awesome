@@ -437,26 +437,14 @@
         transform 0.15s ease;
 }
 
-/* Hover / Tap */
-.code-copy-button:hover {
-    background-color: #ffffff;
-    transform: scale(1.05);
-}
-
-.code-copy-button:active {
-    transform: scale(0.95);
-}
-
-/* ========================= */
-/* Icons                     */
-/* ========================= */
-
 .code-copy-button svg {
     width: 16px;
     height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
 }
 
-/* Toggle icons */
 .copy-icon {
     display: block;
 }
@@ -472,6 +460,16 @@
 .code-copy-button.copied .check-icon {
     display: block;
     color: #28a745;
+}
+
+/* Hover / Tap */
+.code-copy-button:hover {
+    background-color: #ffffff;
+    transform: scale(1.05);
+}
+
+.code-copy-button:active {
+    transform: scale(0.95);
 }
 
 /* ========================= */
