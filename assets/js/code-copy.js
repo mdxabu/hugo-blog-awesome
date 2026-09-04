@@ -15,7 +15,7 @@
 
         codeBlocks.forEach((pre) => {
             // Skip if already processed
-            if (pre.parentElement.classList.contains('code-block')) {
+            if (pre.parentElement?.classList.contains('code-block')) {
                 return;
             }
 

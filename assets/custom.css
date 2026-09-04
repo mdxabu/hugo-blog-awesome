@@ -361,6 +361,7 @@
 .code-block {
     position: relative;
     margin: 2rem 0;
+    isolation: isolate;
 }
 
 /* ========================= */
@@ -422,6 +423,11 @@
     background-color: rgba(255, 255, 255, 0.95);
     border: 1px solid #e1e4e8;
     border-radius: 6px;
+    color: #24292e;
+    padding: 0;
+    opacity: 1;
+    visibility: visible;
+    appearance: none;
 
     cursor: pointer;
     z-index: 10;
