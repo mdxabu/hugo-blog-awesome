@@ -62,6 +62,16 @@
   }
 }
 
+.tts-button.is-reading.is-paused {
+  .tts-icon-play {
+    display: block;
+  }
+
+  .tts-icon-pause {
+    display: none;
+  }
+}
+
 .tts-visually-hidden {
   position: absolute;
   width: 1px;
