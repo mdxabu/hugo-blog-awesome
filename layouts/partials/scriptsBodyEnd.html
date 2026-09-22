@@ -5,6 +5,7 @@
 {{ end }}
 
 {{ $main = $main | append (resources.Get "js/code-copy.js") }}
+{{ $main = $main | append (resources.Get "js/tts.js") }}
 
 {{ $custom := slice }}
 {{ range $script := .Site.Params.additionalScripts }}

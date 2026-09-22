@@ -45,8 +45,21 @@
                 </div>
                 {{ end }}
             </header>
+            {{ if eq .Params.audio true }}
+            <div class="tts-controls" data-tts-controls>
+                <button class="tts-button" type="button" data-tts-play aria-controls="article-content" aria-label="Play article">
+                    <svg class="tts-icon tts-icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.52.86l10.29-6.86a1 1 0 0 0 0-1.72L9.52 4.28A1 1 0 0 0 8 5.14Z"/></svg>
+                    <svg class="tts-icon tts-icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3v14H7zM14 5h3v14h-3z"/></svg>
+                    <span class="tts-visually-hidden" data-tts-play-label>Play</span>
+                </button>
+                <button class="tts-button" type="button" data-tts-stop aria-controls="article-content" aria-label="Stop reading" disabled>
+                    <svg class="tts-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h12v12H6z"/></svg>
+                    <span class="tts-visually-hidden">Stop</span>
+                </button>
+            </div>
+            {{ end }}
             {{ partial "toc.html" .}}
-            <div class="page-content">
+            <div class="page-content" id="article-content" data-tts-content>
                 {{ .Content }}
             </div>
             {{ partial "other-blogs.html" . }}

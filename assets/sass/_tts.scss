@@ -1,0 +1,81 @@
+.tts-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1.5rem auto 1rem;
+}
+
+.tts-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  padding: 0.55rem 1rem;
+  border: 1px solid $light;
+  border-radius: 4px;
+  color: $text-base-color;
+  background-color: transparent;
+  font: inherit;
+  cursor: pointer;
+
+  &:hover,
+  &:focus-visible,
+  &.is-reading {
+    color: $text-link-blue-active;
+    border-color: $text-link-blue-active;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba(0, 54, 199, 0.35);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+.tts-icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  fill: currentColor;
+}
+
+.tts-icon-pause {
+  display: none;
+}
+
+.tts-button.is-reading {
+  .tts-icon-play {
+    display: none;
+  }
+
+  .tts-icon-pause {
+    display: block;
+  }
+}
+
+.tts-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@include media-query($on-mobile) {
+  .tts-controls {
+    flex-wrap: wrap;
+  }
+}

@@ -71,6 +71,19 @@
         }
     }
 
+    // Text-to-speech control
+    .tts-button {
+        color: $dark-text-base-color;
+        border-color: $dark-smoke;
+
+        &:hover,
+        &:focus-visible,
+        &.is-reading {
+            color: $dark-text-link-blue-active;
+            border-color: $dark-text-link-blue-active;
+        }
+    }
+
     // Inline code
     li > code,
     p > code {
